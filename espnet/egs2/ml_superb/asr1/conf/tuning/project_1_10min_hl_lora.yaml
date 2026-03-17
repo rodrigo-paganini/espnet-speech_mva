@@ -23,7 +23,8 @@ freeze_param: [
 frontend: s3prl
 frontend_conf:
     frontend_conf:
-        upstream: hubert_large_ll60k # Note: If the upstream is changed, please change the input_size in the preencoder.
+        # Note: If the upstream is changed, please change the input_size in the preencoder.
+        upstream: hubert_large_ll60k  # TODO might need to change for adapter
     download_dir: ./hub
     multilayer_feature: True
 
@@ -34,9 +35,9 @@ preencoder_conf:
 
 num_workers: 4
 batch_type: sorted
-batch_size: 8
-accum_grad: 8
-patience: 3
+batch_size: 4
+accum_grad: 4
+patience: 6
 init: none
 best_model_criterion:
 -   - valid
@@ -66,9 +67,20 @@ specaug_conf:
     num_time_mask: 10
 
 
-num_iters_per_epoch: 100 # number of iterations per epoch
-max_epoch: 30
+use_adapter: true
+adapter: lora
+save_strategy: required_grad_only
+adapter_conf:
+    rank: 4
+    alpha: 4
+    dropout_rate: 0.1
+    target_modules:
+        - q_proj
+        - k_proj
+
+num_iters_per_epoch: 250 # number of iterations per epoch
+max_epoch: 20
 
 use_wandb: true
 wandb_project: ml-superb
-wandb_name: hubert_large_multilingual_10min
+wandb_name: hubert_large_multilingual_10min_lora_v01

@@ -10,19 +10,19 @@ from espnet2.utils.types import str2bool
 
 DATA = [
     "ALFFA",
-    "LAD",
-    "M-AILABS",
-    "NST",
-    "commonvoice",
+    # "LAD",
+    # "M-AILABS",
+    # "NST",
+    # "commonvoice",
     "fleurs",
-    "googlei18n_asr",
+    # "googlei18n_asr",
     "googlei18n_tts",
-    "mls",
-    "nchlt",
-    "swc",
-    "voxforge",
-    "mexico-el",
-    "voxpopuli",
+    # "mls",
+    # "nchlt",
+    # "swc",
+    # "voxforge",
+    # "mexico-el",
+    # "voxpopuli",
 ]
 
 RESERVE_LANG = [

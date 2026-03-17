@@ -35,8 +35,8 @@ preencoder_conf:
 num_workers: 4
 batch_type: sorted
 batch_size: 8
-accum_grad: 8
-patience: 3
+accum_grad: 4
+patience: 6
 init: none
 best_model_criterion:
 -   - valid
@@ -66,9 +66,9 @@ specaug_conf:
     num_time_mask: 10
 
 
-num_iters_per_epoch: 100 # number of iterations per epoch
+num_iters_per_epoch: 250 # number of iterations per epoch
 max_epoch: 30
 
 use_wandb: true
 wandb_project: ml-superb
-wandb_name: hubert_large_multilingual_10min
+wandb_name: hubert_large_multilingual_10min_v01

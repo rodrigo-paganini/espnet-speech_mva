@@ -6,51 +6,50 @@ from espnet2.utils.types import str2bool
 
 DATA = [
     "ALFFA",
-    "LAD",
-    "M-AILABS",
-    "NST",
+    # "LAD",
+    # "M-AILABS",
+    # "NST",
     "commonvoice",
     "fleurs",
-    "googlei18n_asr",
+    # "googlei18n_asr",
     "googlei18n_tts",
-    "mls",
-    "nchlt",
-    "swc",
-    "voxforge",
-    "mexico-el",
-    "voxpopuli",
+    # "mls",
+    # "nchlt",
+    # "swc",
+    # "voxforge",
+    # "mexico-el",
+    # "voxpopuli",
 ]
 
 SINGLE_LANG = [
-    "eng1",
-    "eng2",
-    "eng3",
-    "fra1",
-    "fra2",
-    "deu1",
-    "deu2",
-    "rus",
-    "swa",
-    "swe",
-    "jpn",
-    "cmn",
-    "xty",
+    'yor',
+    'ibo',
+    'hau',
+    'wol',
+    'swa',
+    'kin',
+    'lug',
+    'luo',
+    'lin',
+    'orm',
+    'sna',
+    'umb'
 ]
 LANG_TO_SELECTED_DATASET = {
-    "eng1": "mls",
-    "eng2": "nchlt",
-    "eng3": "voxpopuli",
-    "fra1": "voxforge",
-    "fra2": "voxpopuli",
-    "deu1": "swc",
-    "deu2": "voxpopuli",
-    "rus": "M-AILABS",
+    "yor": "googlei18n_tts",
+    "ibo": "fleurs",
+    "hau": "commonvoice",
+    "wol": "ALFFA",
     "swa": "ALFFA",
-    "swe": "NST",
-    "jpn": "commonvoice",
-    "cmn": "fleurs",
-    "xty": "mexico-el",
+    "kin": "commonvoice",
+    "lug": "fleurs",
+    "luo": "fleurs",
+    "lin": "fleurs",
+    "orm": "fleurs",
+    "sna": "fleurs",
+    "umb": "fleurs",
 }
+
 
 
 def process_text(text):
@@ -65,9 +64,9 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     assert args.duration in ["10min", "1h"], "we only support 10min or 1h setting"
-    assert (
-        args.lang in SINGLE_LANG
-    ), "the language {} is not in our recommend set".format(args.lang)
+    # assert (
+    #     args.lang in SINGLE_LANG
+    # ), "the language {} is not in our recommend set".format(args.lang)
 
     langs_info = {}
 
@@ -122,7 +121,7 @@ if __name__ == "__main__":
 
     # iterate through dataset
     for dataset in DATA:
-        langs = [args.lang[:3]]
+        langs = [args.lang]
         for lang in langs:
             if not os.path.exists(os.path.join(args.source, dataset, lang)):
                 continue
