@@ -1,0 +1,14 @@
+.DS_Store
+**/.ipynb_checkpoints/
+data/
+dump/
+exp/
+hub/
+*.pth
+*.pt
+*.ckpt
+*.log
+.git-backups/
+.cache/
+.venv/
+.venv3.13
