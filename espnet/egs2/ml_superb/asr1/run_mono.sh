@@ -9,7 +9,7 @@ set -o pipefail
 stage=1
 stop_stage=13
 nj=32
-inference_nj=32
+inference_nj=4
 gpu_inference=false
 expdir=exp
 
@@ -17,10 +17,11 @@ expdir=exp
 asr_config=conf/tuning/train_asr_fbank_single.yaml
 inference_config=conf/decode_asr.yaml
 
-./utils/parse_options.sh || exit 1
+. utils/parse_options.sh || exit 1
 
-for duration in 10min 1h ; do
-    for single_lang in swa yor ibo hau wol kin lug luo lin orm sna umb ; do
+# for duration in 10min 1h ; do
+for duration in 10min ; do
+    for single_lang in swa yor wol ibo hau kin lug luo lin orm sna umb ; do
         echo "processing ${single_lang} ${duration}"
         train_set=train_${duration}_${single_lang}
         train_dev=dev_10min_${single_lang}
