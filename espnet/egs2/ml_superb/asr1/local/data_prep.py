@@ -9,19 +9,19 @@ import soundfile as sf
 from espnet2.utils.types import str2bool
 
 DATA = [
-    "ALFFA",
+    # "ALFFA",
     # "LAD",
     # "M-AILABS",
     # "NST",
-    # "commonvoice",
+    "commonvoice",
     "fleurs",
     # "googlei18n_asr",
-    "googlei18n_tts",
+    # "googlei18n_tts",
     # "mls",
     # "nchlt",
     # "swc",
     # "voxforge",
-    # "mexico-el",
+    "mexico-el",
     # "voxpopuli",
 ]
 
